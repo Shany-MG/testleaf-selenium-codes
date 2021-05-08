@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<suite name = "com_testleaf_xmlsuite">
+
+<test name = "com_testleaf_xmltest">
+
+<classes >
+
+<class name = "com_TestLeaf.testcases.Testleaf_Homepage">
+
+
+</class>
+
+</classes>
+
+
+</test>
+
+
+</suite>
