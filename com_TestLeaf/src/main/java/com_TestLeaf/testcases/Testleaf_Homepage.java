@@ -13,6 +13,7 @@ import org.testng.annotations.Test;
 
 import com_TestLeaf_pageobjectmethod.Testleaf_homepage_pom;
 import com_TestLeaf_utilities.BrowserManager;
+import com_TestLeaf_utilities.Loggermanager_test;
 
 public class Testleaf_Homepage extends BrowserManager {
 
@@ -24,16 +25,22 @@ public class Testleaf_Homepage extends BrowserManager {
 
 		Actions action = new Actions(driver);
 		action.moveToElement(Testleaf_homepage_pom.testleafcourses).build().perform();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		
 		for (WebElement listing : Testleaf_homepage_pom.testleafcourseslist) {
+			
 			String text =	listing.getText();
-			System.out.println(text);
+			Loggermanager_test.logger.info("The mousehover fileds are" + text);
+			//System.out.println(text);
+			//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			
 			if (text.contains("RPA")) {
+				Thread.sleep(30);
 				listing.click();
 
 				Alert alert = driver.switchTo().alert();
 				String alertext =	alert.getText();
-				System.out.println(alertext);
+				Loggermanager_test.logger.info("The clicked message" + alertext);
+				//System.out.println(alertext);
 				alert.accept();
 				
 			

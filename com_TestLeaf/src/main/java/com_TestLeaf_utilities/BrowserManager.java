@@ -12,13 +12,15 @@ public class BrowserManager extends Propertyloader {
 	public static WebDriver driver;
 	@BeforeTest
 	public static void browsermanagement() throws IOException {
-		
+		Loggermanager_test.loggermethod();
 		
 		if(p_browser.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", p_bloct);
 			driver = new FirefoxDriver();
 			driver.navigate().to(p_url);
-			System.out.println(p_browser+ " firefox is launched");
+			
+		Loggermanager_test.logger.info(p_browser+ " firefox is launched");
+			//System.out.println(p_browser+ " firefox is launched");
 		}
 			else if(p_browser.equalsIgnoreCase("chrome")) {
 				System.setProperty("webdriver.chrome.driver", p_bloct);
